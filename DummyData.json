@@ -1,0 +1,254 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "happy tan woman",
+      "prompt": "happy tan woman with long black curly hair blowing out candles on a birthday cake surrounded by a bunch of her friends and family at her 30th party on a beach with a cruise ship in the background",
+      "generator": "pixlr",
+      "image": {
+        "url": "563a7222-9211-4514-9217-36763cae87b8.png",
+        "width": 768,
+        "height": 1344,
+        "ratio": 1.75
+      },
+      "user": {
+        "id": 1,
+        "username": "John Doe",
+        "avatar": "avatar.jpg",
+        "email": "john1234@gmail.com"
+      },
+      "price": 0.99
+    },
+    {
+      "id": 2,
+      "title": "girl standing inside a mansion",
+      "prompt": "Girl standing inside a mansion. Ghibli style. She is wearing a pink dress and a hat on her head. She holds a suitcase in one hand and a hat in the other. Full body is visible. Full of life",
+      "generator": "pixlr",
+      "image": {
+        "url": "563a9222-9211-4514-9217-36763cae87b8.png",
+        "width": 768,
+        "height": 1344,
+        "ratio": 1.75
+      },
+      "user": {
+        "id": 1,
+        "username": "John Doe",
+        "avatar": "avatar.jpg",
+        "email": "john1234@gmail.com"
+      },
+      "price": 2.99
+    },
+    {
+      "id": 3,
+      "title": "I of Rebecca",
+      "prompt": "Image of the 'I' character from the musical Rebecca in a mansion. 3D animated character in a Disney style. Hair is brown and neatly cut with no bangs. Clothes are a simple, toned-down pink dress. Slight blush on face. Pose with a hat on her head, holding the hat with one hand and holding a brown suitcase for traveling with the other hand. Shoes are brown and well-made. Standing inside a mansion. High quality image with textures. Full body image of the character",
+      "generator": "dalle",
+      "image": {
+        "url": "1-659fa9b3be705_oig_1___Balanced.jpg",
+        "width": 4096,
+        "height": 4096,
+        "ratio": 1
+      },
+      "user": {
+        "id": 1,
+        "username": "John Doe",
+        "avatar": "avatar.jpg",
+        "email": "john1234@gmail.com"
+      },
+      "price": 0.99
+    },
+    {
+      "id": 4,
+      "title": "santa width ornaments",
+      "prompt": "colorful festive, highly detailed gaudy, ornaments and a Santa holding a fish, 1970s classic animation, stop motion, feast of the seven fishes, centered early 3D animation, three dimensional 1980s animation, cute funny, cheesy, feast of the seven fishes, Italian",
+      "generator": "dalle",
+      "image": {
+        "url": "_06e4a176-1c9f-41f4-bda4-bfff3179f3ad.jpg",
+        "width": 1024,
+        "height": 1024,
+        "ratio": 1
+      },
+      "user": {
+        "id": 1,
+        "username": "John Doe",
+        "avatar": "avatar.jpg",
+        "email": "john1234@gmail.com"
+      },
+      "price": 4.99
+    },
+    {
+      "id": 5,
+      "title": "3d penguin",
+      "prompt": "3D render of a penguin with colorful background",
+      "generator": "dalle",
+      "image": {
+        "url": "_44db42a1-9b3e-460e-9296-8535899ba02a.jpg",
+        "width": 1024,
+        "height": 1024,
+        "ratio": 1
+      },
+      "user": {
+        "id": 1,
+        "username": "John Doe",
+        "avatar": "avatar.jpg",
+        "email": "john1234@gmail.com"
+      },
+      "price": 0.99
+    }
+  ],
+  "ai_generators": [
+    {
+      "id": "s7t22mqGBSL91lB7FOZC",
+      "generatorName": "dalle",
+      "description": "OpenAI's DALL-E",
+      "logoUrl": "/images/ai-logo/gpt_open_ai.webp"
+    },
+    {
+      "id": "xMKQxJcHoDkjL7H8Njx0",
+      "generatorName": "midjourney",
+      "description": "Midjourney's AI",
+      "logoUrl": "/images/ai-logo/midjourney.png"
+    },
+    {
+      "id": "g6fHXzXSBIZm5v9vuBFq",
+      "generatorName": "firefly",
+      "description": "Adobe's AI",
+      "logoUrl": "/images/ai-logo/firefly.svg"
+    },
+    {
+      "id": "0sjwGbYFmTy57g7TJLwm",
+      "generatorName": "dreamstudio",
+      "description": "Dream Studio's AI",
+      "logoUrl": "/images/ai-logo/dreamstudio.png"
+    },
+    {
+      "id": "JnaK1aXP7RDKvrgIqr5U",
+      "generatorName": "pixlr",
+      "description": "Pixlr's AI",
+      "logoUrl": "/images/ai-logo/pixlr.png"
+    }
+  ],
+  "user": {
+    "id": 1,
+    "username": "John Doe",
+    "email": "john1234@gmail.com",
+    "avatar": "avatar.jpg"
+  },
+  "cart": [
+    {
+      "id": 1,
+      "quantity": 1,
+      "item": {
+        "id": 1,
+        "title": "happy tan woman",
+        "image": {
+          "url": "563a7222-9211-4514-9217-36763cae87b8.png",
+          "width": 768,
+          "height": 1344,
+          "ratio": 1.75
+        },
+        "price": 0.99
+      }
+    },
+    {
+      "id": 2,
+      "quantity": 4,
+      "item": {
+        "id": 2,
+        "title": "girl standing inside a mansion",
+        "image": {
+          "url": "563a9222-9211-4514-9217-36763cae87b8.png",
+          "width": 768,
+          "height": 1344,
+          "ratio": 1.75
+        },
+        "price": 2.99
+      }
+    },
+    {
+      "id": 3,
+      "quantity": 4,
+      "item": {
+        "id": 2,
+        "title": "girl standing inside a mansion",
+        "image": {
+          "url": "563a9222-9211-4514-9217-36763cae87b8.png",
+          "width": 768,
+          "height": 1344,
+          "ratio": 1.75
+        },
+        "price": 2.99
+      }
+    },
+    {
+      "id": 4,
+      "quantity": 4,
+      "item": {
+        "id": 2,
+        "title": "girl standing inside a mansion",
+        "image": {
+          "url": "563a9222-9211-4514-9217-36763cae87b8.png",
+          "width": 768,
+          "height": 1344,
+          "ratio": 1.75
+        },
+        "price": 2.99
+      }
+    },
+    {
+      "id": 5,
+      "quantity": 4,
+      "item": {
+        "id": 2,
+        "title": "girl standing inside a mansion",
+        "image": {
+          "url": "563a9222-9211-4514-9217-36763cae87b8.png",
+          "width": 768,
+          "height": 1344,
+          "ratio": 1.75
+        },
+        "price": 2.99
+      }
+    }
+  ],
+
+  "checkout": {
+    "resultCode": "200",
+    "message": "success",
+    "checkoutId": 1,
+    "data": {
+      "checkoutUnits": [
+        {
+          "id": 1,
+          "quantity": 1,
+          "item": {
+            "id": 1,
+            "title": "happy tan woman",
+            "image": {
+              "url": "563a7222-9211-4514-9217-36763cae87b8.png",
+              "width": 768,
+              "height": 1344,
+              "ratio": 1.75
+            },
+            "price": 0.99
+          }
+        },
+        {
+          "id": 2,
+          "quantity": 4,
+          "item": {
+            "id": 2,
+            "title": "girl standing inside a mansion",
+            "image": {
+              "url": "563a9222-9211-4514-9217-36763cae87b8.png",
+              "width": 768,
+              "height": 1344,
+              "ratio": 1.75
+            },
+            "price": 2.99
+          }
+        }
+      ]
+    }
+  }
+}

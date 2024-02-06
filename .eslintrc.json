@@ -1,3 +1,24 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
+  ],
+  "plugins": [
+    "jsx-a11y"
+  ],
+    "rules": {
+      "padding-line-between-statements": [
+        "error",
+        { "blankLine": "always", "prev":"*", "next":"return"}
+      ],
+      "jsx-a11y/label-has-associated-control": [
+        2, {
+          "labelComponents": ["label"],
+          "labelAttributes": ["htmlFor"],
+          "controlComponents": ["input"]
+        }
+      ]
+    },
+    "ignorePatterns": ["firebase"]
 }
