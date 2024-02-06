@@ -3,6 +3,7 @@ import AuthService from "@/lib/firebase/auth";
 import useUserStore from "@/store/user.store";
 import { useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ErrorBoundary } from "react-error-boundary";
 
 export default function Provider({ children }: { children: React.ReactNode }) {
   const { loginUser, logoutUser } = useUserStore();
@@ -35,6 +36,16 @@ export default function Provider({ children }: { children: React.ReactNode }) {
   }, [loginUser, logoutUser]);
 
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <ErrorBoundary
+        fallback={
+          <div>
+            <h1>Something went wrong</h1>
+          </div>
+        }
+      >
+        {children}
+      </ErrorBoundary>
+    </QueryClientProvider>
   );
 }

@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/navbar";
 import Provider from "@/components/provider";
 import Footer from "@/components/layout/footer";
+import { Suspense } from "react";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -25,9 +26,12 @@ export default function RootLayout({
     <html lang="en" className={fontSans.variable}>
       <body className="">
         <Provider>
-          <Navbar />
-          {children}
-          <Footer />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Navbar />
+
+            {children}
+            <Footer />
+          </Suspense>
         </Provider>
       </body>
     </html>
