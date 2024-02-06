@@ -25,6 +25,7 @@ export function MyArtworkPreview() {
 
   if (artworks.isError) {
     console.log(artworks.error);
+
     return <div>Error</div>;
   }
 

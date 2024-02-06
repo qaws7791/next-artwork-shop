@@ -3,12 +3,12 @@ import Link from "next/link";
 import { Button } from "../../../../../components/ui/button";
 import { getArtworkUrl } from "@/lib/utils";
 
-import usePaymentWidgetQuery from "@/lib/queries/usePaymentWidgetQuery.query";
+import usePaymentWidgetQuery from "@/lib/queries/usePaymentWidgetQuery";
 import { nanoid } from "nanoid";
 import { useEffect, useRef, useState } from "react";
 import { PaymentWidgetInstance } from "@tosspayments/payment-widget-sdk";
 import useUser from "@/hooks/useUser";
-import useOrderQuery from "@/lib/queries/useOrderQuery.query";
+import useOrderQuery from "@/lib/queries/useOrderQuery";
 
 interface OrderInfoProps {
   orderId: string;
