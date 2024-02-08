@@ -6,6 +6,7 @@ import {
   DocumentData,
   collection,
   CollectionReference,
+  Timestamp,
 } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -44,7 +45,7 @@ export interface Artwork {
   artworkName: string;
   artworkPath: string;
   artworkRatio: number;
-  createdAt: string;
+  createdAt: Timestamp;
   description: string;
   discountRate: number;
   generatorId: string;
@@ -57,7 +58,7 @@ export interface User {
   username: string;
   email: string;
   avatar: string;
-  createdAt: string;
+  createdAt: Timestamp;
 }
 
 export interface OrderItem {
@@ -76,7 +77,7 @@ export type OrderStatus = "pending" | "completed";
 export interface Order {
   userId: string;
   totalAmount: number;
-  createdAt: string;
+  createdAt: Timestamp;
   itemIds: string[];
   status: OrderStatus;
 }
