@@ -52,13 +52,15 @@ export function MyArtworkPreview() {
           {artworks.data.map((artwork, index) => (
             <CarouselItem key={index} className="basis-32">
               <div className="aspect-square overflow-hidden rounded-lg bg-muted">
-                <Image
-                  src={convertImagePathToHostedUrl(artwork.artworkPath)}
-                  alt={artwork.artworkName}
-                  width={280}
-                  height={280}
-                  className="object-contain w-full h-full"
-                />
+                <Link href={`/artworks/${artwork.id}`}>
+                  <Image
+                    src={convertImagePathToHostedUrl(artwork.artworkPath)}
+                    alt={artwork.artworkName}
+                    width={280}
+                    height={280}
+                    className="object-contain w-full h-full"
+                  />
+                </Link>
               </div>
             </CarouselItem>
           ))}
