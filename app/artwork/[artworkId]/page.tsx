@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Divider from "@/components/ui/divider";
 import ArtworkService from "@/lib/firebase/artwork";
-import { getArtworkUrl } from "@/lib/utils";
+import { convertImagePathToHostedUrl } from "@/lib/utils";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -28,7 +28,7 @@ export default async function ArtworkDetailPage({
         <div className="flex w-full md:w-1/2 justify-center">
           <div className="border rounded-lg overflow-hidden">
             <Image
-              src={getArtworkUrl(`${artwork.artworkPath}?w=500`)}
+              src={convertImagePathToHostedUrl(`${artwork.artworkPath}?w=500`)}
               alt={artwork.artworkName}
               width={500}
               height={500 / artwork.artworkRatio}

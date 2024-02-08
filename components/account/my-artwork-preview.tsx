@@ -8,11 +8,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import useWindowSize from "@/hooks/useWindowSize co";
+import useWindowSize from "@/hooks/useWindowSize";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import useMyArtworksQuery from "@/lib/queries/useUserArtworksQuery";
-import { getArtworkUrl } from "@/lib/utils";
+import { convertImagePathToHostedUrl } from "@/lib/utils";
 
 export function MyArtworkPreview() {
   const artworks = useMyArtworksQuery();
@@ -53,7 +53,7 @@ export function MyArtworkPreview() {
             <CarouselItem key={index} className="basis-32">
               <div className="aspect-square overflow-hidden rounded-lg bg-muted">
                 <Image
-                  src={getArtworkUrl(artwork.artworkPath)}
+                  src={convertImagePathToHostedUrl(artwork.artworkPath)}
                   alt={artwork.artworkName}
                   width={280}
                   height={280}

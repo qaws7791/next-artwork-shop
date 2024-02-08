@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ErrorBoundary } from "react-error-boundary";
 
 export default function Provider({ children }: { children: React.ReactNode }) {
-  const { loginUser, logoutUser } = useUserStore();
+  const { loginUser, logoutUser, user } = useUserStore();
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -25,8 +25,10 @@ export default function Provider({ children }: { children: React.ReactNode }) {
     const unsubscribe = AuthService.onAuthStateChanged((user) => {
       if (user) {
         loginUser(user);
+        console.log("logged in");
       } else {
         logoutUser();
+        console.log("logged out");
       }
     });
 
@@ -44,7 +46,7 @@ export default function Provider({ children }: { children: React.ReactNode }) {
           </div>
         }
       >
-        {children}
+        {user === undefined ? <div>Loading...</div> : children}
       </ErrorBoundary>
     </QueryClientProvider>
   );

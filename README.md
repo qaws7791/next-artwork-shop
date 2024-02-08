@@ -20,3 +20,4 @@ pnpm dev
 ```
 
 layer 구분하기
+sonner 적용하기 [sonner](https://sonner.emilkowal.ski/)

@@ -28,7 +28,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { cn, getArtworkUrl, getImageRatio } from "@/lib/utils";
+import { cn, convertImagePathToHostedUrl, getImageRatio } from "@/lib/utils";
 import { AI_GENERATORS } from "@/dummy";
 import { Check, ChevronsUpDown } from "lucide-react";
 import Image from "next/image";
@@ -133,7 +133,9 @@ export default function ArtworkForm({ artwork }: ArtworkFormProps) {
         <ImageUpload
           onImageChange={setFile}
           defaultImage={
-            artwork ? getArtworkUrl(artwork.artworkPath) : undefined
+            artwork
+              ? convertImagePathToHostedUrl(artwork.artworkPath)
+              : undefined
           }
         />
 

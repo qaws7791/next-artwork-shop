@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import useMyArtworks from "@/hooks/useMyArtworks";
 import Image from "next/image";
-import useWindowSize from "@/hooks/useWindowSize co";
+import useWindowSize from "@/hooks/useWindowSize";
 import { Button } from "../ui/button";
 import Link from "next/link";
 

@@ -5,14 +5,22 @@ import {
   getDoc,
   collection,
   getDocs,
+  updateDoc,
 } from "firebase/firestore";
 import { auth, db, userCollection } from "./index";
+import StorageService from "./storage";
+import { updateProfile } from "firebase/auth";
 
 export interface UserDto {
   id: string;
   username: string;
   email: string;
   avatar?: string;
+}
+
+export interface UserProfileDto {
+  username: string;
+  avatar?: File | null;
 }
 
 const createUser = async (userDto: UserDto) => {
@@ -67,11 +75,46 @@ const fetchUserCart = async (userId: string) => {
   return cart;
 };
 
+const updateUserProfile = async (userProfileDto: UserProfileDto) => {
+  const currentUser = auth.currentUser;
+  if (!currentUser) {
+    throw new Error("User is not logged in");
+  }
+  const file = userProfileDto.avatar;
+
+  const avatar = file
+    ? await StorageService.uploadAvatar(file)
+    : currentUser.photoURL ||
+      "https://firebasestorage.googleapis.com/v0/b/next-artwork-shop.appspot.com/o/blank-profile-s96.webp?alt=media&token=279b2b72-a60c-4fc6-afb4-b809d9fd1d2a";
+
+  try {
+    await Promise.all([
+      updateProfile(currentUser, {
+        displayName: userProfileDto.username,
+        photoURL: avatar,
+      }),
+      updateDoc(doc(userCollection, currentUser.uid), {
+        username: userProfileDto.username,
+        avatar,
+      }),
+    ]);
+  } catch (error) {
+    console.log(error);
+    throw new Error("Error updating user profile");
+  }
+
+  return {
+    username: userProfileDto.username,
+    avatar,
+  };
+};
+
 const UserService = {
   createUser,
   fetchUser,
   fetchUserCart,
   fetchCurrentUser,
+  updateUserProfile,
 };
 
 export default UserService;

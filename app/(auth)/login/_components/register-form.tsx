@@ -26,9 +26,9 @@ import { useRouter } from "next/navigation";
 import AuthService from "@/lib/firebase/auth";
 
 const registerFormSchema = z.object({
-  username: z.string().min(3),
+  username: z.string().min(2).max(16),
   email: z.string().email(),
-  password: z.string().min(8),
+  password: z.string().min(8).max(20),
 });
 
 export default function RegisterForm() {
@@ -75,7 +75,7 @@ export default function RegisterForm() {
                   <FormControl>
                     <Input placeholder="Username" {...field} />
                   </FormControl>
-                  <FormDescription>Enter at least 3 characters</FormDescription>
+                  <FormDescription>Enter at least 2 characters</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}

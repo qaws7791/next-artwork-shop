@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 import { Checkbox } from "../ui/checkbox";
 import { Button } from "../ui/button";
 import Image from "next/image";
-import { addNumbersWithPrecision, getArtworkUrl } from "@/lib/utils";
+import {
+  addNumbersWithPrecision,
+  convertImagePathToHostedUrl,
+} from "@/lib/utils";
 import Link from "next/link";
 import RemoveCartItemButton from "./remove-cart-item-button";
 import { useRouter } from "next/navigation";
@@ -80,7 +83,7 @@ export default function CartList() {
                 <div className="flex w-full gap-2">
                   <div className="border rounded h-20 w-20 relative aspect-square">
                     <Image
-                      src={getArtworkUrl(
+                      src={convertImagePathToHostedUrl(
                         `${cartItem.artwork.artworkPath}?w=78`,
                       )}
                       alt={cartItem.artwork.artworkName}

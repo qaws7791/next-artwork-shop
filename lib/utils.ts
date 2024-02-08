@@ -54,6 +54,6 @@ export function getImageRatio(image: File) {
   });
 }
 
-export function getArtworkUrl(artworkPath: string) {
-  return `${process.env.NEXT_PUBLIC_FIREBASE_HOSTING_URL}/${artworkPath}`;
+export function convertImagePathToHostedUrl(imagePath: string) {
+  return `${process.env.NEXT_PUBLIC_FIREBASE_HOSTING_URL}/${imagePath}`;
 }

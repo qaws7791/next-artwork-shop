@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../../../../../components/ui/button";
-import { getArtworkUrl } from "@/lib/utils";
+import { convertImagePathToHostedUrl } from "@/lib/utils";
 
 import usePaymentWidgetQuery from "@/lib/queries/usePaymentWidgetQuery";
 import { nanoid } from "nanoid";
@@ -106,7 +106,9 @@ export default function OrderInfo({ orderId, onOrder }: OrderInfoProps) {
             <div className="flex w-full gap-2">
               <div className="border rounded h-20 w-20 relative aspect-square">
                 <Image
-                  src={getArtworkUrl(orderItem.artwork.artworkPath + "?w=78")}
+                  src={convertImagePathToHostedUrl(
+                    orderItem.artwork.artworkPath + "?w=78",
+                  )}
                   alt={orderItem.artwork.artworkName}
                   width={78}
                   height={78}
