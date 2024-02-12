@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import useCurrentUserQuery from "@/lib/queries/useCurrentUserQuery";
-import EditProfileForm from "./edit-profile-form";
+import EditProfileModal from "./edit-profile-modal";
 
 export default function UserCard() {
   const user = useCurrentUserQuery();
@@ -29,7 +29,7 @@ export default function UserCard() {
         </div>
       </div>
       <div className="flex gap-2">
-        <EditProfileForm />
+        <EditProfileModal />
         <Button variant="outline" asChild>
           <Link href="/account/password">Change Password</Link>
         </Button>

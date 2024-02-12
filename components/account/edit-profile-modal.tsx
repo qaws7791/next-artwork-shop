@@ -33,7 +33,7 @@ const profileFormSchema = z.object({
   username: z.string().min(2).max(16),
 });
 
-export default function EditProfileForm() {
+export default function EditProfileModal() {
   const queryClient = useQueryClient();
   const [open, setOpen] = useState(false);
   const [file, setFile] = useState<File | null>(null);
