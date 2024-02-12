@@ -7,6 +7,9 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   updateProfile,
+  updatePassword as fbUpdatePassword,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
 } from "firebase/auth";
 import { auth } from "./index";
 import UserService from "./user";
@@ -109,12 +112,31 @@ const onAuthStateChanged = (callback: (user: User | null) => void) => {
   return auth.onAuthStateChanged(callback);
 };
 
+const updatePassword = async (currentPassword: string, newPassword: string) => {
+  if (!currentPassword || !newPassword)
+    throw new Error("Missing current or new password");
+  const user = auth.currentUser;
+  if (!user || !user.email) throw new Error("No user found");
+
+  const isPasswordUser = user.providerData.some(
+    (provider) => provider.providerId === "password",
+  );
+  if (!isPasswordUser) throw new Error("User is not password user");
+
+  const credential = EmailAuthProvider.credential(user.email, currentPassword);
+  await reauthenticateWithCredential(user, credential);
+
+  await fbUpdatePassword(user, newPassword);
+  return;
+};
+
 const AuthService = {
   signUpWithEmail,
   signInWithEmail,
   signInWithGoogle,
   signOut,
   onAuthStateChanged,
+  updatePassword,
 };
 
 export default AuthService;
