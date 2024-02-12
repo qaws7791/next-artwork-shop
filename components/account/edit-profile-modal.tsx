@@ -59,6 +59,7 @@ export default function EditProfileModal() {
       queryClient.invalidateQueries({
         queryKey: ["current-user"],
       });
+      form.reset();
       setOpen(false);
       alert("Profile Updated");
     } catch (error) {
