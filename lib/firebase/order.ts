@@ -5,19 +5,19 @@ import {
   getDocs,
   query,
   serverTimestamp,
+  setDoc,
   updateDoc,
   where,
 } from "firebase/firestore";
-import {
-  OrderItem,
-  OrderStatus,
-  orderCollection,
-  orderItemCollection,
-} from ".";
+import { OrderItem, orderCollection, orderItemCollection } from ".";
 import ArtworkService from "./artwork";
 import CartService from "./cart";
+import { nanoid } from "nanoid";
 
-const createOrderItem = async (orderItem: Omit<OrderItem, "amount">) => {
+const createOrderItem = async (
+  orderId: string,
+  orderItem: Omit<OrderItem, "amount">,
+) => {
   const discountAmount = (orderItem.price * orderItem.discountRate) / 100;
   const discountedPrice = orderItem.price - discountAmount;
   const amount = Math.floor(discountedPrice * orderItem.quantity * 100) / 100;
@@ -25,6 +25,7 @@ const createOrderItem = async (orderItem: Omit<OrderItem, "amount">) => {
   const docRef = await addDoc(orderItemCollection, {
     ...orderItem,
     amount,
+    orderId,
   });
 
   return {
@@ -40,16 +41,18 @@ const createOrder = async (dto: CreateOrderDto) => {
   if (dto.length === 0) {
     throw new Error("Order items are empty");
   }
+  const newOrderId = nanoid();
+
   const orderItems = await Promise.all(
     dto.map((item) => {
-      return createOrderItem(item);
+      return createOrderItem(newOrderId, item);
     }),
   );
 
   const totalAmount = orderItems.reduce((acc, item) => acc + item.amount, 0);
   const orderItemIds = orderItems.map((item) => item.id);
 
-  const order = await addDoc(orderCollection, {
+  const order = await setDoc(doc(orderCollection, newOrderId), {
     totalAmount: totalAmount,
     createdAt: serverTimestamp(),
     itemIds: orderItemIds,
@@ -57,7 +60,7 @@ const createOrder = async (dto: CreateOrderDto) => {
     userId: dto[0].userId,
   });
 
-  return order.id;
+  return newOrderId;
 };
 
 const fetchOrderItemWithArtwork = async (orderItemId: string) => {

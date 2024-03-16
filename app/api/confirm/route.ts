@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import orderService from "@/lib/firebase/order";
 
 export async function POST(req: Request) {
@@ -61,7 +62,7 @@ export async function POST(req: Request) {
     },
   );
 
-  if (confirmRes.status !== 200) {
+  if (confirmRes.status >= 400) {
     return Response.json({
       status: 500,
       body: {

@@ -68,6 +68,7 @@ export interface OrderItem {
   price: number;
   discountRate: number;
   amount: number;
+  orderId: string;
 }
 
 export type WithId<T> = T & { id: string };
